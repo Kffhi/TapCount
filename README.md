@@ -1,3 +1,118 @@
+# 快捷记账应用
+
+一个极简的个人记账应用，专注于快速记账和支出统计。
+
+## 页面设计
+
+### 主页面（单页面设计）
+```
+主界面
+├─ 顶部操作栏
+│  ├─ 月份选择器
+│  └─ 设置按钮（右上角）
+│
+├─ 支出统计区域
+│  ├─ 本月支出总额
+│  └─ 分类支出比例图
+│
+├─ 支出记录列表
+│  ├─ 按日期分组显示
+│  ├─ 支持下拉刷新
+│  └─ 支持搜索筛选
+│
+└─ 快速记账按钮（右下角悬浮）
+
+设置面板（弹出式）
+├─ 分类管理
+├─ 通知权限
+└─ 其他设置
+```
+
+## 核心功能
+
+### 1. 快速记账
+- 支付通知识别
+  - 自动获取支付宝/微信支付信息
+  - 智能识别金额和商家信息
+  - 轻量级确认弹窗
+- 手动记账
+  - 金额输入
+  - 分类选择
+  - 备注(可选)
+
+### 2. 支出统计
+- 当月支出总览
+  - 总支出金额
+  - 分类占比图表
+- 支出记录列表
+  - 按日期分组
+  - 支持搜索
+  - 支持筛选
+
+### 3. 分类管理
+- 预置分类
+  - 日常饮食
+  - 交通出行
+  - 购物消费
+  - 生活服务
+  - 其他支出
+- 分类设置
+  - 自定义分类
+  - 分类排序
+  - 关键词规则
+
+## 技术实现
+
+### 本地存储
+- SQLite数据库
+  - 账目记录表
+  - 分类配置表
+  - 规则匹配表
+
+### 通知服务
+- 安卓通知监听
+- 文本解析模块
+- 快速记账弹窗
+
+## 项目结构
+```
+src/
+  ├── core/          
+  │   ├── notification/  # 通知监听
+  │   ├── parser/       # 解析引擎
+  │   └── storage/      # 数据存储
+  ├── screens/          
+  │   ├── record/      # 记账相关
+  │   ├── statistics/  # 统计相关
+  │   └── settings/    # 设置相关
+  ├── components/      # 通用组件
+  └── utils/          # 工具函数
+```
+
+## 开发计划
+
+### 第一阶段：基础记账
+1. 实现通知监听和解析
+2. 开发快速记账弹窗
+3. 完成手动记账功能
+
+### 第二阶段：数据管理
+1. 分类管理系统
+2. 支出记录查询
+3. 基础统计图表
+
+### 第三阶段：优化完善
+1. 解析引擎优化
+2. UI交互优化
+3. 性能优化
+
+## 环境要求
+- Android 7.0+
+- React Native 0.73.x
+- Node.js >= 18.0.0
+
+## 安装和运行
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
@@ -66,7 +181,7 @@ This is one way to run your app — you can also build it directly from Android 
 
 Now that you have successfully run the app, let's make changes!
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
 
 When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
 
